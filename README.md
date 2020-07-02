@@ -23,4 +23,6 @@ unzip("./data/babyname.zip", exdir = "./data")
 
 Code
 
+![This is about asterix](https://github.com/Josha91/GoodScraping/blob/master/asterix_scores.png)
+
 ![](../GoodScraping/asterix_scores.png)
