@@ -14,3 +14,11 @@ After reading in the data, analysis is performed (TBD)
 Required Python packages:
 glob, itertools, matplotlib, numpy, os, pandas, PIL, urllib, unidecode
 
+``` r
+URL = "https://www.ssa.gov/oact/babynames/names.zip"
+dir.create("data")
+download.file(URL, destfile = "./data/babyname.zip")
+unzip("./data/babyname.zip", exdir = "./data")
+```
+
+Code
