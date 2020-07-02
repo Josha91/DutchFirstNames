@@ -22,3 +22,5 @@ unzip("./data/babyname.zip", exdir = "./data")
 ```
 
 Code
+
+![](../GoodScraping/asterix_scores.png)
