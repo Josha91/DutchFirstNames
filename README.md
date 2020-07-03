@@ -19,16 +19,8 @@ After reading this in, some statistics are calculated and appended to the datafr
 These tasks are performed by `statistics.py`
 
 Required Python packages:
-glob, itertools, matplotlib, numpy, os, pandas, PIL, urllib, unidecode
+glob, itertools, matplotlib, numpy, os, pandas, PIL, seaborn, urllib, unidecode
 
-``` r
-URL = "https://www.ssa.gov/oact/babynames/names.zip"
-dir.create("data")
-download.file(URL, destfile = "./data/babyname.zip")
-unzip("./data/babyname.zip", exdir = "./data")
-```
-
-Code
 
 ![This is about asterix](https://github.com/Josha91/GoodScraping/blob/master/asterix_scores.png)
 
