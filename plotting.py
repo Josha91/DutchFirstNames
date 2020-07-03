@@ -281,14 +281,15 @@ def plot_age_distr(name,gender,ax=None):
 	#ax2.set_xticklabels(2020-labs)
 	ax.grid(zorder=0)
 	ax.set_frame_on(False)
-	plt.savefig('Johannes_Johanna.png',dpi=100)
+	#plt.savefig('Johannes_Johanna.png',dpi=100)
 	#if ax is None:
 	#	plt.savefig('%s.png'%name,dpi=80)
 
-def plot_age_distr_male_female():
+def plot_age_distr_male_female(name1,name2):
 	fig,ax = plt.subplots(1,2,figsize=(15,7))
-	plot_age_distr('Johannes','man',ax[0])
-	plot_age_distr('Maria','vrouw',ax[1])
+	plot_age_distr(name1,'man',ax[0])
+	plot_age_distr(name2,'vrouw',ax[1])
+	plt.savefig('images/%s_%s.png'%(name1,name2))
 	plt.show()
 
 if __name__ == "__main__":
@@ -298,5 +299,7 @@ if __name__ == "__main__":
 	#inequality()
 	#show_popularity_distributions()
 	#show_name_lengths()
-	violinplot()
+	#violinplot()
+	plot_age_distr_male_female('Johannes','Maria')
+	plot_age_distr_male_female('Jayden','Maud')
 
