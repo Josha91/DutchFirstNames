@@ -16,6 +16,7 @@ import os
 import pandas as pd
 from PIL import Image
 from read_popularity_lists import download_all
+from statistics import median_age
 import urllib.request
 import unidecode
 
@@ -95,7 +96,7 @@ def detect_ticks(image,xaxis,yaxis):
 	if np.sum(use) > 14: raise ValueError #Too many ticks, something went wrong
 	return ticklabels,locs[use]
 
-def return_histogram(image,locs,ticklabels,ticklocs):
+def return_histogram(image,locs,ticklabels,ticklocs,xax):
 	"""
 	We found the locations, now just read off the values and return
 	"""
@@ -106,7 +107,7 @@ def return_histogram(image,locs,ticklabels,ticklocs):
 
 	height = []
 	for xloc in locs:
-		arr = image[:,int(xloc)]
+		arr = image[:xax,int(xloc)]
 		groups = []
 		for k,g in itertools.groupby(arr,key=lambda i: i==0):
 			groups.append(list(g))
@@ -147,7 +148,7 @@ def get_histogram(img_path):
 #	positions = get_positions(im[:,:,2],xax)
 	ticklabels,ticklocs = detect_ticks(im[:,:,2],xax,yax)
 	positions = np.arange(yax+2,im[:,:,2].shape[1]-20,5)
-	years,height = return_histogram(im[:,:,2],positions,ticklabels,ticklocs)
+	years,height = return_histogram(im[:,:,2],positions,ticklabels,ticklocs,xax)
 	#detect the *width* by checking the interval at which the image dips in the horizontal derection.
 	#Detect the relative height by checking the continuous vertical length of each of those positions. 
 	#detect the year of each by detecting the position of the y-axis.  
@@ -176,10 +177,23 @@ def download_images():
 			link = 'https://www.meertens.knaw.nl/nvb/populariteit/absoluut/%s/afbeelding/naam/%s'%(gender,unaccented)
 			urllib.request.urlretrieve(link, "histograms/%s_%s.jpg"%(name,gender))
 			df = get_histogram('histograms/%s_%s.jpg'%(name,gender))
-			data.to_csv('histograms/%s_%s.csv'%(name,gender))
+			df.to_csv('histograms/%s_%s.csv'%(name,gender))
+		except: #problems occur with accents.
+			print('An error occurred when trying to read:')
+			print(name,gender)
+
+def download_image(name,gender):
+	unaccented = unidecode.unidecode(name)
+	if not os.path.exists('histograms/%s_%s.jpg'%(name,gender)): 
+		try:
+			link = 'https://www.meertens.knaw.nl/nvb/populariteit/absoluut/%s/afbeelding/naam/%s'%(gender,unaccented)
+			urllib.request.urlretrieve(link, "histograms/%s_%s.jpg"%(name,gender))
+			df = get_histogram('histograms/%s_%s.jpg'%(name,gender))
+			df.to_csv('histograms/%s_%s.csv'%(name,gender))
 		except: #problems occur with accents.
 			print('An error occurred when trying to read:')
 			print(name,gender)
 
 if __name__ == '__main__':
-	download_images()
+	for name in ['Desiree','Fabienne','Joelle','Lois','Marielle','Renee','Vajen','Zoe']:
+		download_image(name,'vrouw')
