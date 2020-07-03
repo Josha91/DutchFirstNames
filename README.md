@@ -18,10 +18,21 @@ After reading this in, some statistics are calculated and appended to the datafr
 1. The birth distribution of people with a given name is combined with average survival statistics from the central Dutch bureau of statistics (CBS), to obtain the average age of the people with that name that are still living. See analysis below. 
 These tasks are performed by `statistics.py`
 
+The main output data can be found in `name_statistics_netherlands_1880-2014.csv`
+
 Required Python packages:
 glob, itertools, matplotlib, numpy, os, pandas, PIL, seaborn, urllib, unidecode
 
+Let's have a look at the dataset. 
 
-![This is about asterix](https://github.com/Josha91/GoodScraping/blob/master/asterix_scores.png)
+The zeroth-order thing we can do, is look at the total number of births over time. A small caveat here is that this only tracks the top-100 names in boys and girls (~200 names in total). The percentage of the total births that these reprents is unlikely to be constant over time (in particular, I would expect this to be a smaller percentage in recent years, as we will see later). Adding the total number of births would be a small, straightforward extension of the dataset. 
+Most notably, in this figure we see:
+1. Rising total births early on, corresponding to a rising population size. 
+1. The babyboom after the war is a significant spike in the number of births. 
+1. The number of births falls sharply after the 1960s, coinciding with the introduction of advanced anti-conception.
+1. At the beginning of the 21st century the birth rates are similar to those at the beginning of the 20th century, but with a much larger population this represents a much lower fertility. 
 
-![](../GoodScraping/asterix_scores.png)
+![Annual births of top-100 male and female names](https://github.com/Josha91/DutchFirstNames/blob/master/images/annual_births.png)
+
+
+
