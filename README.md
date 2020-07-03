@@ -75,5 +75,6 @@ Finally, we can have a look at the average length of babynames. The figure below
 1. The average length of both girls and boys names decreased rapidly after the 1960s, by about 2 characters. Single-syllable names became very popular. 
 
 
-
 ![Length of babynames](https://github.com/Josha91/DutchFirstNames/blob/master/images/average_name_length.png)
+
+Not shown here, but investigated elsewhere, is that these trends are contrary to what is seen in the USA. In particular, name lengths *did not* change much there in the last 100 years, parents were not as 'conservative' at the turn of the 19th century. This can be understood from the larger variety in cultural backgrounds that cohabitated the US at that time.
