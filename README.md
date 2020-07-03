@@ -23,7 +23,7 @@ The main output data can be found in `name_statistics_netherlands_1880-2014.csv`
 Required Python packages:
 glob, itertools, matplotlib, numpy, os, pandas, PIL, seaborn, urllib, unidecode
 
-Let's have a look at the dataset. 
+Let's have a look at the dataset. Plots below are all done within `plotting.py`
 
 The zeroth-order thing we can do, is look at the total number of births over time. A small caveat here is that this only tracks the top-100 names in boys and girls (~200 names in total). The percentage of the total births that these reprents is unlikely to be constant over time (in particular, I would expect this to be a smaller percentage in recent years, as we will see later). Adding the total number of births would be a small, straightforward extension of the dataset. 
 Most notably, in this figure we see:
@@ -34,5 +34,9 @@ Most notably, in this figure we see:
 
 ![Annual births of top-100 male and female names](https://github.com/Josha91/DutchFirstNames/blob/master/images/annual_births.png)
 
+Next, we would like to know what happens to the popularity of specific babynames. 
+
+![Popularity of 'Johannes' and 'Maria' over time](https://github.com/Josha91/DutchFirstNames/blob/master/images/Johannes_Maria.png)
 
 
+![Popularity of 'Jayden' and 'Maud' over time](https://github.com/Josha91/DutchFirstNames/blob/master/images/Jayden_Maud.png)
