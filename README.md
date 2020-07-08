@@ -78,3 +78,6 @@ Finally, we can have a look at the average length of babynames. The figure below
 ![Length of babynames](https://github.com/Josha91/DutchFirstNames/blob/master/images/average_name_length.png)
 
 Not shown here, but what I investigated elsewhere, is that these trends are contrary to what is seen in the USA. In particular, name lengths *did not* change much there in the last 100 years, parents were not as 'conservative' at the turn of the 19th century. This can be understood from the larger variety in cultural backgrounds that cohabitated the US at that time.
+
+
+![Comparison to other countries](https://github.com/Josha91/DutchFirstNames/blob/master/images/name_length_vowels.png)
